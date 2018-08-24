@@ -1,0 +1,366 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-3.3.1.js"></script>
+    <title>Swiper</title>
+    <style>
+        .images {
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+        
+        .window {
+            border: 2px solid blue;
+            width: 300px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="window">
+        <div class="images" id="images">
+            <img src="./img/timg (1).jpg" width="300" alt="picture1">
+            <img src="./img/timg (2).jpg" width="300" alt="picture2">
+            <img src="./img/timg (3).jpg" width="300" alt="picture3">
+        </div>
+    </div>
+    <button id="p1">p1</button>
+    <button id="p2">p2</button>
+    <button id="p3">p3</button>
+
+
+
+
+
+
+
+    <script>
+        $('#p1').on('click', function() {
+            $(images).css({
+                transform: 'translateX(0)'
+            })
+        })
+        $('#p2').on('click', function() {
+            $(images).css({
+                transform: 'translateX(-300px)'
+            })
+        })
+        $(p3).on('click', function() {
+            $(images).css({
+                transform: 'translateX(-600px)'
+            })
+        })
+    </script>
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery-3.3.1.js"></script>
+    <title>Swiper</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .images {
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+        
+        .position-1 {
+            transform: translateX(0);
+        }
+        
+        .position-2 {
+            transform: transLateX(-300px);
+        }
+        
+        .position-3 {
+            transform: translateX(-600px);
+        }
+        
+        .window {
+            width: 300px;
+            overflow: hidden;
+        }
+        
+        #button>span {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="window">
+        <div class="images" id="images">
+            <img src="./img/timg (1).j2pg" width="300" height="300" alt="picture1">
+            <img src="./img/timg (2).jpg" width="300" height="300" alt="picture2">
+            <img src="./img/timg (3).jpg" width="300" height="300" alt="picture3">
+        </div>
+    </div>
+    <span id="button">
+        <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+    </span>
+
+
+    <script>
+        function a() {
+            // $('#p1').on('click', function() {
+            //     $(images).addClass('position-1')
+            //     $(images).removeClass('position-2')
+            //     $(images).removeClass('position-3')
+            // })
+            // $('#p2').on('click', function() {
+            //     $(images).addClass('position-2')
+            //     $(images).removeClass('position-1')
+            //     $(images).removeClass('position-3')
+            // })
+            // $(p3).on('click', function() {
+            //     $(images).addClass('position-3')
+            //     $(images).removeClass('position-2')
+            //     $(images).removeClass('position-1')
+            // })
+        }
+
+        function b() {
+            // $('#p1').on('click', function() {
+            //     $(images).css({
+            //         transform: 'translateX(0)'
+            //     })
+            // })
+            // $('#p2').on('click', function() {
+            //     $(images).css({
+            //         transform: 'translateX(-300px)'
+            //     })
+            // })
+            // $(p3).on('click', function() {
+            //     $(images).css({
+            //         transform: 'translateX(-600px)'
+            //     })
+            // })
+        }
+
+
+
+
+
+        var allButtons = $("#button > span")
+        for (let i = 0; i < allButtons.length; i++) {
+            $(allButtons[i]).on('click', function(x) {
+
+                var index = $(x.currentTarget).index()
+                var n = -300 * index
+
+                $('#images').css({
+                    transform: 'translateX(' + n + 'px)'
+                })
+            })
+        }
+
+
+
+
+        var n = 0;
+        size = allButtons.length
+        console.log(n % size)
+        allButtons.eq(n % size).trigger('click')
+            .addClass('red')
+            .siblings('.red').removeClass('red')
+        var timeId = setInterval(() => {
+            n++;
+            console.log(n % size)
+            allButtons.eq(n % size).trigger('click')
+                .addClass('red')
+                .siblings('.red').removeClass('red')
+        }, 1000)
+
+
+        $(".window").on('mouseenter', function() {
+            clearInterval(timeId) 
+        })
+        $(".window").on('mouseleave', function() {
+            var timeId = setInterval(() => {
+                n++;
+                console.log(n % size)
+                allButtons.eq(n % size).trigger('click')
+                    .addClass('red')
+                    .siblings('.red').removeClass('red')
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.3.1.js"></script>
+    <style>
+        /* 全局 */
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .clearfloat::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .blue {
+            background: rgba(0, 0, 255, 1)
+        }
+        /* main */
+        
+        #screem {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        #images {
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.8s;
+        }
+        
+        ul>li {
+            float: left;
+            display: block;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.4);
+            margin: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <!-- 屏幕 -->
+        <div id="screem">
+            <div id="images">
+                <img src="./img/timg (1).jpg" alt="picture" width="300" height="300">
+                <img src="./img/timg (2).jpg" alt="picture" width="300" height="300">
+                <img src="./img/timg (3).jpg" alt="picture" width="300" height="300">
+            </div>
+
+        </div>
+        <!-- 按钮 -->
+        <ul id="allButtons" class="clearfloat">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </main>
+
+
+
+
+    <script>
+        // 获取所有的按钮元素
+        let $allButtons = $('#allButtons>li')
+
+        // 给所有按钮增加点击事件
+        for (let i = 0; i < $allButtons.length; i++) {
+            let $button = $allButtons.eq(i)
+            $button.on('click', function(x) {
+                //获取点击元素在父节点里的索引
+                let $current = $(x.currentTarget)
+                let index = $current.index()
+                    // 通过索引求出images移动距离
+                let distance = (-300) * index
+
+                // 调用css直接给images移动
+                $('#images').css({
+                    transform: 'translateX(' + distance + 'px)'
+                })
+
+                // 给active按钮增加class
+                activeButton($current)
+
+            })
+
+        }
+
+
+        // 初始化屏幕以及计时器
+        let n = 0;
+        let size = $allButtons.length
+        let n2 = n % size
+        $allButtons.eq(n2).trigger('click')
+            // 计时器
+        let timer = setTimer()
+
+        // 鼠标进入屏幕关闭计时器
+        $('#screem').on('mouseenter', function() {
+            window.clearInterval(timer)
+        })
+
+        // 鼠标移除打开计时器
+        $('#screem').on('mouseleave', function() {
+            timer = setTimer()
+        })
+
+        // 封装一个给按钮活动效果的方法
+        function activeButton($button) {
+            $button.addClass('blue')
+                .siblings('.blue').removeClass('blue')
+        }
+        // 封装一个计时器
+        function setTimer() {
+            return setInterval(() => {
+                n += 1
+                $allButtons.eq(n % size).trigger('click')
+            }, 3000)
+        }
+    </script>
+</body>
+
+</html>
